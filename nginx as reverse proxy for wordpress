@@ -20,8 +20,6 @@ services:
   db:
     image: mysql:5.7
     env_file: ./.env
-    volumes:
-      - .db_data:/var/lib/mysql
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=${MRTPASSWD}
@@ -37,8 +35,6 @@ services:
     env_file: ./.env
     volumes:
       - .wordpress_data:/var/www/html
-    ports:
-      - "8000:8000"
     restart: always
     environment:
      - WORDPRESS_DB_HOST=${WDBHOST}:3306
